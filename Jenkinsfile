@@ -10,7 +10,7 @@ pipeline {
                 sh 'git branch'
                 sh 'git checkout main'
                 sh 'git push --set-upstream v0.2-rc1'
-                sh 'git push --set-upstream origin'
+                sh 'git push --set-upstream origin main'
             }
         }
     }
