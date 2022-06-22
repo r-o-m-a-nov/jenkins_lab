@@ -6,8 +6,10 @@ pipeline {
             steps {
                 echo 'Hello World'
                //sh 'git tag v0.1'
-                //sh 'git checkout -b v0.2-rc1'
+                //sh 'git branch v0.2-rc1'
                 sh 'git branch'
+                sh 'git checkout main'
+                sh 'git push --set-upstream v0.2-rc1'
                 sh 'git push --set-upstream origin'
             }
         }
