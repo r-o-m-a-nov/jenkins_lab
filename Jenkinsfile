@@ -28,7 +28,7 @@ pipeline {
                 //sh 'git tag v0.2'
                 echo "${env.n}"
                 echo "${env.n} + 1"
-                for (int i=0 i < ${env.n} i++){
+                for (int i=0; i < ${env.n}; i++){
                  echo $i
                 }
                  sh "git branch v0.${env.n}+1-rc1"
