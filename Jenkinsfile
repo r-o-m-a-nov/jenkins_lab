@@ -6,6 +6,12 @@ pipeline {
             steps {
                 echo "GIT_COMMIT: ${env.GIT_COMMIT}"
                 echo "GIT_URL: ${env.GIT_URL}"
+                echo "BRANCH_NAME: ${env.BRANCH_NAME}"
+                echo "GIT_BRANCH: ${env.GIT_BRANCH}"
+                echo "GIT_PREVIOUS_COMMIT: ${env.GIT_PREVIOUS_COMMIT}"
+                echo "GIT_PREVIOUS_SUCCESSFUL_COMMIT: ${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
+                echo "BUILD_TAG: ${env.BUILD_TAG}"
+                echo "BUILD_NUMBER: ${env.BUILD_NUMBER}"
 
                 echo 'Hello World'
                 sh 'git tag v0.1'
