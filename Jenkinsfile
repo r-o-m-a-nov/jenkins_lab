@@ -1,4 +1,4 @@
-def count;
+def count=5;
 
 pipeline {
     agent any
@@ -21,6 +21,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                
                 echo "Variable count: $count"
                 echo 'Hello World'
                 sh(returnStdout: true, script: "git tag --points-at")
