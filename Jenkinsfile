@@ -24,8 +24,8 @@ pipeline {
                 //sh 'git push --set-upstream origin main'
                 
                 sshagent(credentials: ["bc9480a8-21a8-4bfd-a4d7-fe18b4b7f7bc"]) {
-                    def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
-                    sh("git remote set-url origin $repository")
+                    //def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
+                    //sh("git remote set-url origin $repository")
                     sh("git tag --force v0.2")
                     sh("git push --force origin build-${env.BRANCH_NAME}")
                 }
