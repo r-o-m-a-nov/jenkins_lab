@@ -3,7 +3,7 @@ pipeline {
     environment {
       int  n = 5
     }
-   def getChangeString(count){
+   def getChangeString(Int count){
       for (int i=0; i < $count; i++){
          echo $i
         }
