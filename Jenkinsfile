@@ -31,7 +31,7 @@ pipeline {
                 //sh 'git tag v0.2'
                 echo "${env.n}"
                 echo "${env.n} + 1"
-             echo "${MY_STAGE.MY_TASK.output.job}"
+            
                 //getChangeString("${env.n}")
                  sh "git branch v0.${env.n}+1-rc1"
                 //sh 'git branch'
