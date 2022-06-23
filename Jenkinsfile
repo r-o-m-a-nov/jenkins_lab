@@ -38,7 +38,7 @@ pipeline {
                     //def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
                     //sh("git remote set-url origin $repository")
                     sh(returnStdout: true, script: "git tag --points-at")
-                    sh("git push origin v0.3")
+                    sh("git push origin v0.4")
                 }
                 
               }
