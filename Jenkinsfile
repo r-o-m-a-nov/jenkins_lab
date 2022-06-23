@@ -3,11 +3,7 @@ pipeline {
     environment {
       int  n = 5
     }
-   def getChangeString(Int count){
-      for (int i=0; i < $count; i++){
-         echo $i
-        }
-   }
+
     stages {
         stage('GET ENV') {
             steps {
@@ -57,4 +53,8 @@ pipeline {
         }
     }
 }
-
+   def getChangeString(Int count){
+      for (int i=0; i < $count; i++){
+         echo $i
+        }
+   }
