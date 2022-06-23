@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                 sh(returnStdout: true, script: "git tag --points-at")
-                sh("git tag --contains $GIT_PREVIOUS_COMMIT")
+                sh("git tag --contains $GIT_COMMIT")
                 //sh("git tag v0.3")
                 //sh("git tag --contains")
                 //sh 'git tag v0.2'
