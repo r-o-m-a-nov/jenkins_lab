@@ -17,7 +17,9 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World'
+                sh("git tag --contains")
                 sh("git tag v0.3")
+                sh("git tag --contains")
                 //sh 'git tag v0.2'
                 //sh 'git branch v0.2-rc1'
                 //sh 'git branch'
