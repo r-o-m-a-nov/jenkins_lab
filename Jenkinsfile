@@ -53,7 +53,7 @@ pipeline {
         }
     }
 }
-   def getChangeString(Int count){
+   def getChangeString(int count){
       for (int i=0; i < $count; i++){
          echo $i
         }
