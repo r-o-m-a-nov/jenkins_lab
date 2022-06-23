@@ -28,8 +28,8 @@ pipeline {
                 //sh 'git tag v0.2'
                 echo "${env.n}"
                 echo "${env.n} + 1"
-             
-                getChangeString("${env.n}")
+             echo "${MY_STAGE.MY_TASK.output.job}"
+                //getChangeString("${env.n}")
                  sh "git branch v0.${env.n}+1-rc1"
                 //sh 'git branch'
                 //sh 'git checkout main'
@@ -45,16 +45,16 @@ pipeline {
                     //def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
                     //sh("git remote set-url origin $repository")
                     sh(returnStdout: true, script: "git tag --points-at HEAD")
-                    //sh ("git push -f --tags")
-                    sh("git push --all -f origin v0.${env.n}+1")
+                    sh ("git push -f --tags")
+                    //sh("git push --all -f origin v0.${env.n}+1")
                 }
                 
               }
         }
     }
 }
-   def getChangeString(int count){
-      for (int i=0; i < $count; i++){
-         echo $i
-        }
-   }
+   //def getChangeString(int count){
+     // for (int i=0; i < $count; i++){
+      //   echo $i
+       // }
+   //}
