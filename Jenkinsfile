@@ -37,7 +37,7 @@ pipeline {
                 sshagent(credentials: ["bc9480a8-21a8-4bfd-a4d7-fe18b4b7f7bc"]) {
                     //def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
                     //sh("git remote set-url origin $repository")
-                    sh(returnStdout: true, script: "git tag --points-at")
+                    sh(returnStdout: true, script: "git tag --points-at HEAD")
                     sh("git push origin v0.4")
                 }
                 
