@@ -29,7 +29,7 @@ pipeline {
                 echo "${env.n}"
                 echo "${env.n} + 1"
              
-                getChangeString(${env.n})
+                getChangeString("${env.n}")
                  sh "git branch v0.${env.n}+1-rc1"
                 //sh 'git branch'
                 //sh 'git checkout main'
