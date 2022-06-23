@@ -30,7 +30,7 @@ pipeline {
                 //sh("git tag --contains")
                 //sh 'git tag v0.2'
                 echo "${env.n}"
-                echo "${env.n} + 1"
+                echo ${env.n} + 1
             
                 //getChangeString("${env.n}")
                  sh "git branch v0.${env.n}+1-rc1"
