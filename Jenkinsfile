@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        n = 5  
+        n = 5
     }
 
     stages {
@@ -26,7 +26,8 @@ pipeline {
                 sh("git tag -a -f v0.${env.n} -m 'Iteration is ${env.n}' ")
                 //sh("git tag --contains")
                 //sh 'git tag v0.2'
-                //sh 'git branch v0.2-rc1'
+                echo '${env.n}+1'
+                sh 'git branch v0.${env.n}+1-rc1'
                 //sh 'git branch'
                 //sh 'git checkout main'
                 //sh 'git pull'
@@ -41,7 +42,7 @@ pipeline {
                     //def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
                     //sh("git remote set-url origin $repository")
                     sh(returnStdout: true, script: "git tag --points-at HEAD")
-                    sh("git push origin v0.${env.n}")
+                    sh("git push --all -f origin v0.${env.n}")
                 }
                 
               }
