@@ -1,3 +1,5 @@
+def count;
+
 pipeline {
     agent any
     environment {
@@ -19,7 +21,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-              
+                echo "Variable count: $count"
                 echo 'Hello World'
                 sh(returnStdout: true, script: "git tag --points-at")
                 sh("git tag --contains $GIT_COMMIT")
@@ -45,8 +47,8 @@ pipeline {
                     //def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
                     //sh("git remote set-url origin $repository")
                     sh(returnStdout: true, script: "git tag --points-at HEAD")
-                    sh ("git push -f --tags")
-                    //sh("git push --all -f origin v0.${env.n}+1")
+                    //sh ("git push -f --tags")
+                    sh("git push --all -f origin v0.${env.n}")
                 }
                 
               }
