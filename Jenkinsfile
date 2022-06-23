@@ -3,7 +3,11 @@ pipeline {
     environment {
       int  n = 5
     }
-
+   def getChangeString(count){
+      for (int i=0; i < count; i++){
+         echo $i
+        }
+   }
     stages {
         stage('GET ENV') {
             steps {
@@ -29,7 +33,7 @@ pipeline {
                 echo "${env.n}"
                 echo "${env.n} + 1"
              
-                getChangeString()
+                getChangeString(${env.n})
                  sh "git branch v0.${env.n}+1-rc1"
                 //sh 'git branch'
                 //sh 'git checkout main'
@@ -53,8 +57,4 @@ pipeline {
         }
     }
 }
-   def getChangeString(){
-      for (int i=0; i < ${env.n}; i++){
-         echo $i
-        }
-   }
+
