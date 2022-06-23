@@ -58,7 +58,7 @@ pipeline {
     }
 
 }
-   def getSum(int counter){
+   def getSum(String counter){
        def tr="${counter}+1+2+3"
        return tr
    }    
