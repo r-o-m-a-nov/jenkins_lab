@@ -22,7 +22,7 @@ pipeline {
         stage('Test') {
             steps {
                 
-                echo "Variable count: count+1"
+                echo "Variable count: $count"
                 echo 'Hello World'
                 sh(returnStdout: true, script: "git tag --points-at")
                 sh("git tag --contains $GIT_COMMIT")
@@ -32,7 +32,7 @@ pipeline {
                 echo "${env.n}"
                 println (count + 1)
             
-                //getChangeString("${env.n}")
+                getSum(count)
                  sh "git branch v0.${env.n}+1-rc1"
                 //sh 'git branch'
                 //sh 'git checkout main'
@@ -56,8 +56,8 @@ pipeline {
         }
     }
 }
-   //def getChangeString(int count){
-     // for (int i=0; i < $count; i++){
-      //   echo $i
-       // }
-   //}
+   def getSum(int count){
+      for (int i=0; i < $count; i++){
+         echo i
+        }
+   }
