@@ -1,7 +1,7 @@
 pipeline {
     agent any
     //environment {
-      int  n = 5
+      def  n = 5
     //}
 
     stages {
@@ -19,11 +19,11 @@ pipeline {
         }
         stage('Hello') {
             steps {
-                checkout scm
+              
                 echo 'Hello World'
                 sh(returnStdout: true, script: "git tag --points-at")
                 sh("git tag --contains $GIT_COMMIT")
-                sh("git tag -a -f v0.${env.n} -m 'Iteration is ${n}' ")
+                sh("git tag -a -f v0.${n} -m 'Iteration is ${n}' ")
                 //sh("git tag --contains")
                 //sh 'git tag v0.2'
                 echo '${n}+1'
