@@ -56,10 +56,10 @@ pipeline {
               }
         }
     }
+
+}
    def getSum(int counter){
        for (int i=0; i < ${counter}; i++){
          echo i
         }
    }    
-}
-
