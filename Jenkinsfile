@@ -17,6 +17,7 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World'
+                sh("git tag v0.3")
                 //sh 'git tag v0.2'
                 //sh 'git branch v0.2-rc1'
                 //sh 'git branch'
@@ -32,8 +33,8 @@ pipeline {
                 sshagent(credentials: ["bc9480a8-21a8-4bfd-a4d7-fe18b4b7f7bc"]) {
                     //def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
                     //sh("git remote set-url origin $repository")
-                    sh("git tag --force v0.2")
-                    sh("git push origin v0.2")
+                    
+                    sh("git push origin v0.3")
                 }
                 
               }
