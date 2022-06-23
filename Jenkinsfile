@@ -23,7 +23,7 @@ pipeline {
                 echo 'Hello World'
                 sh(returnStdout: true, script: "git tag --points-at")
                 sh("git tag --contains $GIT_COMMIT")
-                sh("git tag -a -f v0.${env.n}")
+                sh("git tag -a -f v0.${env.n} -m 'Iteration is ${env.n}' ")
                 //sh("git tag --contains")
                 //sh 'git tag v0.2'
                 //sh 'git branch v0.2-rc1'
