@@ -56,8 +56,8 @@ pipeline {
         }
     }
 }
-   def getSum(int count){
-      for (int i=0; i < $count; i++){
+   def getSum(int counter){
+      for (int i=0; i < $counter; i++){
          echo i
         }
    }
