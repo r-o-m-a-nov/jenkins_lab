@@ -3,7 +3,8 @@ def count=5;
 pipeline {
     agent any
     environment {
-      int  n = 5
+      n = 1
+      branch = v0.2-rc1
     }
 
     stages {
@@ -22,19 +23,12 @@ pipeline {
         stage('Test') {
             steps {
                 
-                echo "Variable count: $count"
-                echo 'Hello World'
-                sh(returnStdout: true, script: "git tag --points-at")
+                //sh(returnStdout: true, script: "git tag --points-at")
                 sh("git tag --contains $GIT_COMMIT")
-                sh("git tag -a -f v0.'${count}+1' -m 'Iteration is ${env.n}' ")
+                sh("git tag -a -f v0.${env.n} -m 'Iteration is ${env.n}' ")
                 //sh("git tag --contains")
                 //sh 'git tag v0.2'
-                echo "${env.n}"
-                println (count + 1)
-            
-                def pir=getSum(count)
-                echo "${pir}"
-                 sh "git branch v0.${env.n}+1-rc1"
+                sh "git branch v0.${env.branch}"
                 //sh 'git branch'
                 //sh 'git checkout main'
                 //sh 'git pull'
@@ -48,9 +42,10 @@ pipeline {
                 sshagent(credentials: ["bc9480a8-21a8-4bfd-a4d7-fe18b4b7f7bc"]) {
                     //def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
                     //sh("git remote set-url origin $repository")
-                    sh(returnStdout: true, script: "git tag --points-at HEAD")
-                    //sh ("git push -f --tags")
-                    sh("git push --all -f origin v0.${env.n}")
+                    //sh(returnStdout: true, script: "git tag --points-at HEAD")
+                    sh ("git push -f --tags")
+                    //sh("git push --all -f origin v0.${env.n}")
+                    sh ("git push --set-upstream origin ${env.branch}")
                 }
                 
               }
@@ -58,7 +53,3 @@ pipeline {
     }
 
 }
-   def getSum(String counter){
-       def tr="${counter}+1+2+3"
-       return tr
-   }    
