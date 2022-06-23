@@ -28,11 +28,7 @@ pipeline {
                 //sh 'git tag v0.2'
                 echo "${env.n}"
                 echo "${env.n} + 1"
-                def getChangeString(){
-                for (int i=0; i < ${env.n}; i++){
-                 echo $i
-                 }
-                }
+             
                 echo getChangeString()
                  sh "git branch v0.${env.n}+1-rc1"
                 //sh 'git branch'
@@ -57,3 +53,8 @@ pipeline {
         }
     }
 }
+   def getChangeString(){
+      for (int i=0; i < ${env.n}; i++){
+         echo $i
+        }
+   }
