@@ -32,7 +32,7 @@ pipeline {
                 echo "${env.n}"
                 println (count + 1)
             
-                def pir=getSum(6)
+                def pir=getSum(count)
                 echo "${pir}"
                  sh "git branch v0.${env.n}+1-rc1"
                 //sh 'git branch'
@@ -59,7 +59,6 @@ pipeline {
 
 }
    def getSum(int counter){
-       for (int i=0; i < ${counter}; i++){
-         echo i
-        }
+       def tr="${counter}+1+2+3"
+       return tr
    }    
