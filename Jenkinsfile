@@ -22,7 +22,7 @@ pipeline {
         stage('Test') {
             steps {
                 
-                echo "Variable count: $count"
+                echo "Variable count: count+1"
                 echo 'Hello World'
                 sh(returnStdout: true, script: "git tag --points-at")
                 sh("git tag --contains $GIT_COMMIT")
