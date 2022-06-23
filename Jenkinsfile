@@ -16,10 +16,11 @@ pipeline {
         }
         stage('Hello') {
             steps {
+                checkout scm
                 echo 'Hello World'
                 sh(returnStdout: true, script: "git tag --points-at")
                 sh("git tag --contains $GIT_COMMIT")
-                sh("git tag v0.3")
+                sh("git tag v0.4")
                 //sh("git tag --contains")
                 //sh 'git tag v0.2'
                 //sh 'git branch v0.2-rc1'
