@@ -4,7 +4,7 @@ pipeline {
       int  n = 5
     }
    def getChangeString(count){
-      for (int i=0; i < count; i++){
+      for (int i=0; i < $count; i++){
          echo $i
         }
    }
