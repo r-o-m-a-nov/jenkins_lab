@@ -32,7 +32,8 @@ pipeline {
                 echo "${env.n}"
                 println (count + 1)
             
-                getSum(6)
+                def pir=getSum(6)
+                echo ${pir}
                  sh "git branch v0.${env.n}+1-rc1"
                 //sh 'git branch'
                 //sh 'git checkout main'
