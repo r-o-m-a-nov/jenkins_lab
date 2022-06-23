@@ -26,7 +26,8 @@ pipeline {
                 sh("git tag -a -f v0.${env.n} -m 'Iteration is ${env.n}' ")
                 //sh("git tag --contains")
                 //sh 'git tag v0.2'
-                echo '${env.n}+1'
+                echo '${env.n}'
+                echo '(${env.n}) + 1'
                 sh 'git branch v0.${env.n}+1-rc1'
                 //sh 'git branch'
                 //sh 'git checkout main'
