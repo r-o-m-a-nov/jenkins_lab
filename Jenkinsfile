@@ -33,7 +33,7 @@ pipeline {
                 println (count + 1)
             
                 def pir=getSum(6)
-                echo ${pir}
+                echo "${pir}"
                  sh "git branch v0.${env.n}+1-rc1"
                 //sh 'git branch'
                 //sh 'git checkout main'
