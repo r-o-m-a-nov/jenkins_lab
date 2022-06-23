@@ -28,7 +28,7 @@ pipeline {
                 //sh 'git tag v0.2'
                 echo "${env.n}"
                 echo "${env.n} + 1"
-                p=${env.n}+1
+                def p=${env.n}+1
                 sh 'git branch v0.${p}-rc1'
                 //sh 'git branch'
                 //sh 'git checkout main'
@@ -44,7 +44,7 @@ pipeline {
                     //def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
                     //sh("git remote set-url origin $repository")
                     sh(returnStdout: true, script: "git tag --points-at HEAD")
-                    p=${env.n}+1
+                    def p=${env.n}+1
                     sh("git push --all -f origin v0.${p}")
                 }
                 
