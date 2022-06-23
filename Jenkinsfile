@@ -17,7 +17,7 @@ pipeline {
                 echo "BUILD_NUMBER: ${env.BUILD_NUMBER}"
             }
         }
-        stage('Hello') {
+        stage('Test') {
             steps {
               
                 echo 'Hello World'
@@ -29,7 +29,7 @@ pipeline {
                 echo "${env.n}"
                 echo "${env.n} + 1"
              
-                echo getChangeString()
+                getChangeString()
                  sh "git branch v0.${env.n}+1-rc1"
                 //sh 'git branch'
                 //sh 'git checkout main'
@@ -45,8 +45,8 @@ pipeline {
                     //def repository = "git@" + env.GIT_URL.replaceFirst(".+://", "").replaceFirst("/", ":")
                     //sh("git remote set-url origin $repository")
                     sh(returnStdout: true, script: "git tag --points-at HEAD")
-                    sh ("git push -f --tags")
-                    //sh("git push --all -f origin v0.${env.n}+1")
+                    //sh ("git push -f --tags")
+                    sh("git push --all -f origin v0.${env.n}+1")
                 }
                 
               }
